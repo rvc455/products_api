@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="httpFlow" doc:id="ef48ab2b-5310-497a-be0e-789c6e51c909" >
+		<http:listener doc:name="Listener" doc:id="74ae0ed1-5db8-4daa-9139-3c916aa45cac" config-ref="HTTP_Listener_config" path="http" allowedMethods="POST">
+			<http:response statusCode="#[vars.statuscode]" reasonPhrase='#[vars.httpreason]' >
+			</http:response>
+		</http:listener>
+		<logger level="INFO" doc:name="Logger" doc:id="cef7770e-7e86-4536-871a-03499bfc8bd3" message="#[payload]"/>
+		<set-payload value='#["success-response"]' doc:name="Set Payload" doc:id="46412c3a-ee08-4a9c-961b-ff201a45e274" />
+		<set-variable value="200" doc:name="Set Variable" doc:id="2c14ba9a-196f-47c6-bd1e-ccbda9678262" variableName="statuscode"/>
+		<set-variable value='#["ok"]' doc:name="Set Variable" doc:id="74b4ccce-75f3-4554-9108-e767e11131e2" variableName="httpreason"/>
+	</flow>
+</mule>

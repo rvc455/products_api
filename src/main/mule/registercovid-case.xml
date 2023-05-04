@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="96be8258-8c3c-4ad5-af87-8cbea704088d" basePath="covid-cases" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="registercovid-caseFlow" doc:id="4553de72-351d-4927-9ae7-be78fb438537" >
+		<http:listener doc:name="Listener" doc:id="751305fb-044f-40c9-b1bf-1c1256fccf77" config-ref="HTTP_Listener_config" path="register" allowedMethods="POST"/>
+		<logger level="INFO" doc:name="Logger" doc:id="19979cbb-63b7-4946-9085-739b5abc63b1" message="#[payload.address.country]"/>
+		<set-variable value="#[payload.lastname]" doc:name="Set Variable" doc:id="8bdec803-0783-4ad0-9778-41cd0d6b1eec" variableName="username"/>
+		<logger level="INFO" doc:name="Logger" doc:id="2e275ed1-0111-4ca6-b1de-14b9d14308da" message="#[vars.username]"/>
+	</flow>
+</mule>
