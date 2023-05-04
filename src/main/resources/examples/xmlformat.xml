@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<covidcases>
+    <source>self</source>
+    <casetype>negative</casetype>
+    <firstname>ravichandra</firstname>
+    <lastname>kilaru</lastname>
+    <phone>9703824737</phone>
+    <email>ravichandra0455</email>
+    <dob>08-08-1989</dob>
+    <idcard>aadhar</idcard>
+    <idnumber>445140222</idnumber>
+    <address>
+        <hno>9-24/5e</hno>
+        <state>telangana</state>
+        <pincode>507101</pincode>
+        <country>india</country>
+    </address>
+</covidcases>

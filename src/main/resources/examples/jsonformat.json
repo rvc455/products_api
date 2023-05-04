@@ -1,0 +1,17 @@
+{
+"source":"self",
+"casetype":"negative",
+"firstname":"ravichandra",
+"lastname":"kilaru",
+"phone no":"9703824737",
+"email":"rvc0455@gmail.com",
+"dob":"08-05-1989",
+"idcard":"aadhar",
+"idnumber":"445140222334",
+"address":{
+    "hno":"9-24/5E",
+    "pincode":"507101",
+    "state":"telanga",
+    "country":"India"
+}
+}
